@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Product · Luxury</title>
-
+<title>Producto — Detalle</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,133 +11,138 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background:#fff;
-  color:#000;
   font-family:'Inter',system-ui;
+  background:#fff;
+  color:#111;
 }
 
 /* ===== HEADER ===== */
 header{
-  position:fixed;
+  position:sticky;
   top:0;
-  width:100%;
   background:#fff;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  z-index:100;
+}
+.header-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:22px 32px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 26px;
-  z-index:100;
-  border-bottom:1px solid rgba(0,0,0,.08);
 }
-header img{height:26px}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family:'Playfair Display',serif;
+  letter-spacing:.25em;
+}
+.brand img{
+  width:40px;
+}
 nav{
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+  display:flex;
+  gap:32px;
 }
 nav a{
   text-decoration:none;
-  color:#000;
-  opacity:.7;
+  color:#111;
+  font-size:12px;
+  letter-spacing:.32em;
 }
-nav a:hover{opacity:1}
+nav a:hover{opacity:.6}
 
-/* ===== SPACER ===== */
-.spacer{height:110px}
+/* ===== BACK ===== */
+.back{
+  position:fixed;
+  top:120px;
+  left:26px;
+  font-size:13px;
+  letter-spacing:.25em;
+  text-decoration:none;
+  color:#111;
+  opacity:.6;
+}
+.back:hover{opacity:1}
 
 /* ===== PRODUCT ===== */
-.product-wrap{
-  max-width:1200px;
+.product{
+  max-width:1400px;
   margin:auto;
-  padding:80px 26px 160px;
+  padding:120px 32px 160px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:80px;
 }
 @media(max-width:900px){
-  .product-wrap{grid-template-columns:1fr}
+  .product{
+    grid-template-columns:1fr;
+  }
 }
 
 /* IMAGE */
 .product-image img{
   width:100%;
-  border:1px solid rgba(0,0,0,.12);
+  display:block;
 }
 
 /* INFO */
 .product-info h1{
   font-family:'Playfair Display',serif;
-  font-size:36px;
-  letter-spacing:.18em;
-  margin-bottom:24px;
+  font-size:46px;
+  letter-spacing:.25em;
+  margin-bottom:18px;
 }
 .product-info p{
   font-size:14px;
-  line-height:1.8;
-  opacity:.75;
-  margin-bottom:34px;
-}
-.price{
-  font-size:18px;
-  letter-spacing:.22em;
-  margin-bottom:30px;
+  letter-spacing:.18em;
+  opacity:.65;
+  line-height:1.7;
+  margin-bottom:40px;
 }
 
-/* SELECT */
-select{
-  width:100%;
-  padding:14px;
-  font-size:12px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+/* SIZE */
+.sizes{
+  display:flex;
+  gap:16px;
+  margin-bottom:40px;
+}
+.size{
   border:1px solid rgba(0,0,0,.25);
-  margin-bottom:24px;
+  padding:12px 18px;
+  font-size:12px;
+  letter-spacing:.3em;
+  cursor:pointer;
+}
+.size:hover{
+  background:#000;
+  color:#fff;
 }
 
 /* BUTTON */
-.btn{
-  width:100%;
-  padding:16px;
-  background:#000;
-  color:#fff;
-  text-align:center;
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  cursor:pointer;
-  border:none;
-}
-.btn:hover{opacity:.85}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#000;
-  color:#fff;
-  padding:90px 26px;
-  text-align:center;
-}
-footer p{
-  font-size:11px;
-  letter-spacing:.24em;
-  opacity:.6;
-}
-
-/* BACK */
-.back{
-  position:fixed;
-  left:22px;
-  bottom:22px;
+.add{
+  display:inline-block;
+  padding:18px 36px;
+  border:1px solid #000;
   text-decoration:none;
   color:#000;
-  border:1px solid #000;
-  padding:12px 20px;
-  font-size:11px;
-  letter-spacing:.18em;
-  background:#fff;
+  font-size:12px;
+  letter-spacing:.35em;
 }
-.back:hover{
+.add:hover{
   background:#000;
   color:#fff;
+}
+
+/* FOOTER */
+footer{
+  padding:40px 20px;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.3em;
+  opacity:.4;
 }
 </style>
 </head>
@@ -146,49 +150,49 @@ footer p{
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
-  <nav>
-    <a href="tienda.html">Shop</a>
-  </nav>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="logo.png">
+      <span>TIENDA</span>
+    </div>
+    <nav>
+      <a href="tienda.html">TIENDA</a>
+      <a href="carrito.html">CARRITO</a>
+    </nav>
+  </div>
 </header>
 
-<div class="spacer"></div>
+<a href="tienda.html" class="back">← TIENDA</a>
 
-<section class="product-wrap">
+<section class="product">
 
   <div class="product-image">
-    <img src="producto.jpg" alt="Producto">
+    <img src="dem1.png" alt="Producto">
   </div>
 
   <div class="product-info">
-    <h1>Luxury Piece</h1>
+    <h1>EDICIÓN LIMITADA</h1>
     <p>
-      Diseño exclusivo. Materiales premium.  
-      Cada pieza es seleccionada para mantener una presencia
-      elegante y atemporal.
+      Diseño conceptual de alta presencia visual.  
+      Esta pieza representa el enfoque estético de una marca luxury.  
+      Materiales, forma y detalle pensados para impacto visual.
     </p>
 
-    <div class="price">$ —</div>
+    <div class="sizes">
+      <div class="size">S</div>
+      <div class="size">M</div>
+      <div class="size">L</div>
+      <div class="size">XL</div>
+    </div>
 
-    <select>
-      <option>Select Size</option>
-      <option>Small</option>
-      <option>Medium</option>
-      <option>Large</option>
-    </select>
-
-    <button class="btn">
-      Add to Cart
-    </button>
+    <a href="carrito.html" class="add">AGREGAR AL CARRITO</a>
   </div>
 
 </section>
 
 <footer>
-  <p>© Luxury Store · All Rights Reserved</p>
+  © TIENDA — ALL RIGHTS RESERVED
 </footer>
-
-<a href="tienda.html" class="back">← Back</a>
 
 </body>
 </html>
