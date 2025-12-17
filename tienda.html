@@ -1,187 +1,762 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Tienda — Colección</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Tienda | Luxury</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Tipografía premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.10);
+      --border: rgba(255,255,255,.16);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --text:#ffffff;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1180px;
+    }
 
-body{
-  font-family:'Inter',system-ui;
-  background:#fff;
-  color:#111;
-  overflow-x:hidden;
-}
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ height:100%; }
+    body{
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(900px 700px at 90% 15%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow-x:hidden;
+    }
 
-/* ===== HEADER ===== */
-header{
-  position:sticky;
-  top:0;
-  background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.08);
-  z-index:100;
-}
-.header-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:22px 32px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-family:'Playfair Display',serif;
-  letter-spacing:.25em;
-}
-.brand img{
-  width:40px;
-}
-nav{
-  display:flex;
-  gap:32px;
-}
-nav a{
-  text-decoration:none;
-  color:#111;
-  font-size:12px;
-  letter-spacing:.32em;
-}
-nav a:hover{opacity:.6}
+    /* ===== TOPBAR (premium) ===== */
+    .topbar-wrap{
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      padding: 12px 12px 10px;
+      background: linear-gradient(to bottom, rgba(11,11,11,.96), rgba(11,11,11,.78));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .topbar{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .left, .right{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 110px;
+    }
+    .center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+    }
 
-/* ===== BACK ===== */
-.back{
-  position:fixed;
-  top:120px;
-  left:26px;
-  font-size:13px;
-  letter-spacing:.25em;
-  text-decoration:none;
-  color:#111;
-  opacity:.6;
-  z-index:90;
-}
-.back:hover{opacity:1}
+    .icon-btn{
+      width:44px;height:44px;
+      display:grid;place-items:center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+      color:#fff;
+      cursor:pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+      text-decoration:none;
+    }
+    .icon-btn:active{ transform: scale(.97); }
+    .icon-btn:hover{
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
 
-/* ===== TITLE ===== */
-.title{
-  text-align:center;
-  padding:120px 20px 80px;
-}
-.title h1{
-  font-family:'Playfair Display',serif;
-  font-size:52px;
-  letter-spacing:.4em;
-  margin-bottom:14px;
-}
-.title p{
-  font-size:13px;
-  letter-spacing:.3em;
-  opacity:.6;
-}
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      text-decoration:none;color:#fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .brand img{
+      width:34px;height:34px;object-fit:cover;border-radius:10px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+    }
+    .brand .name{
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height:1;
+      opacity:.95;
+      white-space: nowrap;
+    }
+    .brand .sub{
+      display:block;
+      font-family: Inter, system-ui;
+      font-size: 11px;
+      letter-spacing: .18em;
+      opacity: .65;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
 
-/* ===== GRID ===== */
-.grid{
-  max-width:1400px;
-  margin:auto;
-  padding:0 32px 160px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:38px;
-}
-.item{
-  cursor:pointer;
-  overflow:hidden;
-}
-.item img{
-  width:100%;
-  display:block;
-  transition:transform .9s ease;
-}
-.item:hover img{
-  transform:scale(1.08);
-}
-.item span{
-  display:block;
-  margin-top:14px;
-  font-size:12px;
-  letter-spacing:.28em;
-  opacity:.6;
-}
+    /* ===== Marquee premium ===== */
+    .ticker{
+      max-width: var(--max);
+      margin: 10px auto 0;
+      overflow:hidden;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 10px;
+    }
+    .ticker .row{
+      display:flex;
+      gap: 34px;
+      white-space: nowrap;
+      animation: slide 22s linear infinite;
+      opacity:.78;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .ticker span{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .dot{
+      width:4px;height:4px;border-radius:99px;background: rgba(255,255,255,.55);
+      display:inline-block;
+    }
+    @keyframes slide{
+      0%{ transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
+    }
 
-/* ===== FOOTER ===== */
-footer{
-  padding:40px 20px;
-  text-align:center;
-  font-size:11px;
-  letter-spacing:.3em;
-  opacity:.4;
-}
-</style>
+    /* ===== Layout ===== */
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 12px 100px;
+    }
+
+    /* ===== HERO (campaign) ===== */
+    .hero{
+      margin-top: 12px;
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .hero .media{
+      height: clamp(360px, 58vh, 560px);
+      background: #111;
+      position: relative;
+    }
+    .hero .media img{
+      width:100%;height:100%;object-fit:cover;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .hero .media::after{
+      content:"";
+      position:absolute;inset:0;
+      background: radial-gradient(900px 600px at 20% 30%, rgba(0,0,0,.15), rgba(0,0,0,.78)),
+                  linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.78));
+      pointer-events:none;
+    }
+    .hero .content{
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 680px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 11px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      opacity: .88;
+    }
+    .kicker b{
+      font-weight:600;
+      opacity: .95;
+    }
+    .headline{
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 5.2vw, 56px);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      line-height: .95;
+      text-shadow: 0 18px 50px rgba(0,0,0,.55);
+    }
+    .desc{
+      max-width: 56ch;
+      color: rgba(255,255,255,.78);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .btn{
+      border-radius: 999px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      text-decoration:none;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.26);
+      transform: translateY(-1px);
+    }
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      color:#000;
+      border-color: rgba(255,255,255,.92);
+    }
+    .btn.primary:hover{
+      background:#fff;
+      border-color:#fff;
+    }
+
+    /* ===== Section ===== */
+    .section{
+      margin-top: 26px;
+      padding-top: 8px;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin: 10px 4px 14px;
+    }
+    .section-title{
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .section-note{
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+    }
+
+    /* ===== Categories grid (LV style) ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      position: relative;
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 14px 50px rgba(0,0,0,.28);
+      min-height: 220px;
+      cursor:pointer;
+      text-decoration:none;
+      color:#fff;
+      transform: translateY(0);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.05);
+    }
+    .card .img{
+      position:absolute; inset:0;
+    }
+    .card .img img{
+      width:100%;height:100%;
+      object-fit:cover;
+      filter: contrast(1.02) saturate(1.02);
+      transform: scale(1.04);
+      transition: transform .6s ease;
+    }
+    .card:hover .img img{ transform: scale(1.10); }
+    .card .shade{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.80), rgba(0,0,0,.15) 55%, rgba(0,0,0,.08));
+    }
+    .card .meta{
+      position:absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .card h3{
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height:1.05;
+    }
+    .card p{
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.70);
+      margin-top: 6px;
+    }
+    .pill{
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Responsive sizing in grid */
+    .span-12{ grid-column: span 12; min-height: 260px; }
+    .span-6{ grid-column: span 6; }
+    .span-4{ grid-column: span 4; min-height: 240px; }
+    .span-8{ grid-column: span 8; }
+    @media (max-width: 900px){
+      .span-6, .span-8, .span-4{ grid-column: span 12; }
+      .card{ min-height: 260px; }
+    }
+
+    /* ===== Quick row: “descubrir” ===== */
+    .quick{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .quick a{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+      text-decoration:none;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .quick a:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.07);
+    }
+    .quick .t{
+      font-size: 12px;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      opacity: .92;
+    }
+    .quick .s{
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+      margin-top: 6px;
+    }
+    .arrow{
+      width: 40px; height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      display:grid; place-items:center;
+      background: rgba(0,0,0,.18);
+    }
+    @media (max-width: 560px){
+      .quick{ grid-template-columns: 1fr; }
+    }
+
+    /* ===== Bottom bar (safe) ===== */
+    .bottom-safe{
+      height: 36px;
+    }
+
+    /* ===== Drawer menu ===== */
+    .drawer-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+      z-index: 200;
+    }
+    .drawer{
+      position: fixed;
+      top: 0; left: 0;
+      height: 100%;
+      width: min(92vw, 420px);
+      background: rgba(12,12,12,.92);
+      border-right: 1px solid rgba(255,255,255,.12);
+      box-shadow: 20px 0 60px rgba(0,0,0,.55);
+      transform: translateX(-102%);
+      transition: transform .28s ease;
+      z-index: 210;
+      padding: 16px 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .drawer.open{ transform: translateX(0); }
+    .drawer-backdrop.open{
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .drawer-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .drawer-title{
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+    .drawer-list{
+      margin-top: 6px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 10px;
+    }
+    .drawer-item{
+      padding: 14px 12px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      text-decoration:none;
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      margin-bottom: 10px;
+    }
+    .drawer-item:hover{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+    }
+    .drawer-item .label{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity:.95;
+    }
+    .drawer-item .chev{
+      opacity:.75;
+      font-size: 18px;
+      line-height: 1;
+    }
+    .drawer-foot{
+      margin-top:auto;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 12px;
+      color: rgba(255,255,255,.65);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    /* ===== Small helper ===== */
+    .sr-only{ position:absolute; left:-9999px; }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <img src="logo.png">
-      <span>TIENDA</span>
+  <!-- Drawer -->
+  <div class="drawer-backdrop" id="backdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Menú">
+    <div class="drawer-top">
+      <div class="drawer-title">Menú</div>
+      <button class="icon-btn" id="closeDrawer" aria-label="Cerrar menú" type="button">✕</button>
     </div>
-    <nav>
-      <a href="index.html">INICIO</a>
-      <a href="carrito.html">CARRITO</a>
-    </nav>
-  </div>
-</header>
 
-<a href="index.html" class="back">← INICIO</a>
+    <div class="drawer-list">
+      <a class="drawer-item" href="index.html">
+        <div>
+          <div class="label">Inicio</div>
+        </div>
+        <div class="chev">›</div>
+      </a>
+      <a class="drawer-item" href="tienda.html">
+        <div>
+          <div class="label">Tienda</div>
+        </div>
+        <div class="chev">›</div>
+      </a>
+      <a class="drawer-item" href="carrito.html">
+        <div>
+          <div class="label">Carrito</div>
+        </div>
+        <div class="chev">›</div>
+      </a>
+      <a class="drawer-item" href="producto.html">
+        <div>
+          <div class="label">Producto</div>
+        </div>
+        <div class="chev">›</div>
+      </a>
+    </div>
 
-<section class="title">
-  <h1>COLECCIÓN</h1>
-  <p>Edición visual · Muestra de diseño</p>
-</section>
+    <div class="drawer-foot">
+      Edición visual premium.<br>
+      Diseño limpio. Espacio. Presencia.<br>
+      No es volumen. Es marca.
+    </div>
+  </aside>
 
-<section class="grid">
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem1.png">
-    <span>LOOK 01</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem2.png">
-    <span>LOOK 02</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem3.png">
-    <span>LOOK 03</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem4.png">
-    <span>LOOK 04</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem5.png">
-    <span>LOOK 05</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem6.png">
-    <span>LOOK 06</span>
-  </div>
-  <div class="item" onclick="location.href='producto.html'">
-    <img src="dem7.png">
-    <span>LOOK 07</span>
-  </div>
-</section>
+  <!-- Topbar -->
+  <div class="topbar-wrap">
+    <div class="topbar">
+      <div class="left">
+        <button class="icon-btn" id="openDrawer" aria-label="Abrir menú" type="button">☰</button>
+        <button class="icon-btn" id="openSearch" aria-label="Buscar (demo)" type="button">⌕</button>
+      </div>
 
-<footer>
-  © TIENDA — ALL RIGHTS RESERVED
-</footer>
+      <div class="center">
+        <a class="brand" href="index.html" aria-label="Volver a inicio">
+          <img src="logo.png" alt="Logo">
+          <div>
+            <div class="name">Luxury</div>
+            <span class="sub">Tienda</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="right">
+        <a class="icon-btn" href="carrito.html" aria-label="Ir al carrito">👜</a>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="row">
+        <span><i class="dot"></i> Envío premium</span>
+        <span><i class="dot"></i> Curated selection</span>
+        <span><i class="dot"></i> Edición limitada</span>
+        <span><i class="dot"></i> Diseño atemporal</span>
+
+        <!-- repetimos para el loop -->
+        <span><i class="dot"></i> Envío premium</span>
+        <span><i class="dot"></i> Curated selection</span>
+        <span><i class="dot"></i> Edición limitada</span>
+        <span><i class="dot"></i> Diseño atemporal</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Campaña principal">
+      <div class="media">
+        <img src="dem1.png" alt="Campaña principal">
+      </div>
+
+      <div class="content">
+        <div class="kicker"><b>Discover</b> <span class="dot"></span> Colección Curada</div>
+        <div class="headline">Edición<br>de Temporada</div>
+        <div class="desc">
+          Piezas seleccionadas. Presentación limpia. Una tienda que se siente como marca.
+          Entra y navega por categorías.
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#categorias">Entrar a categorías ↘</a>
+          <a class="btn" href="producto.html">Ver producto (demo) →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick -->
+    <div class="quick" aria-label="Accesos rápidos">
+      <a href="#categorias">
+        <div>
+          <div class="t">Categorías</div>
+          <div class="s">Explorar por estilo</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+      <a href="carrito.html">
+        <div>
+          <div class="t">Carrito</div>
+          <div class="s">Revisar selección</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <section class="section" id="categorias">
+      <div class="section-head">
+        <div class="section-title">Categorías</div>
+        <div class="section-note">Curated · Timeless · Modern</div>
+      </div>
+
+      <div class="grid">
+        <!-- grande -->
+        <a class="card span-12" href="producto.html" aria-label="Edición Especial">
+          <div class="img"><img src="dem2.png" alt="Edición Especial"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Edición Especial</h3>
+              <p>Selección de impacto</p>
+            </div>
+            <div class="pill">Explorar →</div>
+          </div>
+        </a>
+
+        <!-- 2 columnas -->
+        <a class="card span-6" href="producto.html" aria-label="Bolsos y Piezas">
+          <div class="img"><img src="dem3.png" alt="Bolsos y Piezas"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Bolsos & Piezas</h3>
+              <p>Diseño y presencia</p>
+            </div>
+            <div class="pill">Ver →</div>
+          </div>
+        </a>
+
+        <a class="card span-6" href="producto.html" aria-label="Accesorios">
+          <div class="img"><img src="dem4.png" alt="Accesorios"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Accesorios</h3>
+              <p>Detalles finos</p>
+            </div>
+            <div class="pill">Ver →</div>
+          </div>
+        </a>
+
+        <!-- 3 columnas (desktop) -->
+        <a class="card span-4" href="producto.html" aria-label="Colección Mujer">
+          <div class="img"><img src="dem5.png" alt="Colección Mujer"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Mujer</h3>
+              <p>Curated selection</p>
+            </div>
+            <div class="pill">Entrar →</div>
+          </div>
+        </a>
+
+        <a class="card span-4" href="producto.html" aria-label="Colección Hombre">
+          <div class="img"><img src="dem6.png" alt="Colección Hombre"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Hombre</h3>
+              <p>Modern pieces</p>
+            </div>
+            <div class="pill">Entrar →</div>
+          </div>
+        </a>
+
+        <a class="card span-4" href="producto.html" aria-label="Novedades">
+          <div class="img"><img src="dem7.png" alt="Novedades"></div>
+          <div class="shade"></div>
+          <div class="meta">
+            <div>
+              <h3>Novedades</h3>
+              <p>Drop visual</p>
+            </div>
+            <div class="pill">Ver →</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="bottom-safe"></div>
+    </section>
+
+  </main>
+
+  <script>
+    // Drawer
+    const drawer = document.getElementById('drawer');
+    const backdrop = document.getElementById('backdrop');
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+
+    function openMenu(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      backdrop.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    openDrawer.addEventListener('click', openMenu);
+    closeDrawer.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    // Search button (demo)
+    document.getElementById('openSearch').addEventListener('click', ()=>{
+      alert('Búsqueda: aquí luego se conecta con tu sistema (Square/Inventario).');
+    });
+  </script>
 
 </body>
 </html>
