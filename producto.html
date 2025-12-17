@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Producto — Detalle</title>
+<title>Producto | Luxury</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -21,13 +21,13 @@ header{
   position:sticky;
   top:0;
   background:#fff;
+  z-index:20;
   border-bottom:1px solid rgba(0,0,0,.08);
-  z-index:100;
 }
 .header-inner{
-  max-width:1400px;
+  max-width:1200px;
   margin:auto;
-  padding:22px 32px;
+  padding:18px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,114 +35,128 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
   font-family:'Playfair Display',serif;
-  letter-spacing:.25em;
+  letter-spacing:.2em;
 }
 .brand img{
-  width:40px;
+  width:36px;
+  height:36px;
 }
 nav{
   display:flex;
-  gap:32px;
+  gap:30px;
+  font-size:13px;
+  letter-spacing:.18em;
 }
 nav a{
   text-decoration:none;
   color:#111;
-  font-size:12px;
-  letter-spacing:.32em;
 }
-nav a:hover{opacity:.6}
 
-/* ===== BACK ===== */
-.back{
-  position:fixed;
-  top:120px;
-  left:26px;
-  font-size:13px;
-  letter-spacing:.25em;
-  text-decoration:none;
-  color:#111;
-  opacity:.6;
-}
-.back:hover{opacity:1}
-
-/* ===== PRODUCT ===== */
-.product{
-  max-width:1400px;
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1200px;
   margin:auto;
-  padding:120px 32px 160px;
+  padding:60px 20px 120px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:80px;
+  gap:70px;
 }
 @media(max-width:900px){
-  .product{
+  .container{
     grid-template-columns:1fr;
+    gap:40px;
   }
 }
 
-/* IMAGE */
-.product-image img{
-  width:100%;
-  display:block;
-}
-
-/* INFO */
-.product-info h1{
-  font-family:'Playfair Display',serif;
-  font-size:46px;
-  letter-spacing:.25em;
-  margin-bottom:18px;
-}
-.product-info p{
-  font-size:14px;
-  letter-spacing:.18em;
-  opacity:.65;
-  line-height:1.7;
-  margin-bottom:40px;
-}
-
-/* SIZE */
-.sizes{
+/* ===== GALERIA ===== */
+.gallery{
   display:flex;
-  gap:16px;
+  gap:18px;
+}
+.thumbs{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.thumbs img{
+  width:70px;
+  height:90px;
+  object-fit:cover;
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,.12);
+}
+.main-img{
+  flex:1;
+}
+.main-img img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+}
+
+/* ===== INFO ===== */
+.info h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  letter-spacing:.12em;
+  margin-bottom:16px;
+}
+.price{
+  font-size:18px;
+  letter-spacing:.18em;
+  margin-bottom:24px;
+}
+.desc{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:32px;
+  max-width:460px;
+}
+
+/* ===== SELECTOR ===== */
+.selector{
+  margin-bottom:28px;
+}
+.selector span{
+  display:block;
+  font-size:12px;
+  letter-spacing:.2em;
+  margin-bottom:12px;
+}
+.options{
+  display:flex;
+  gap:12px;
+}
+.options div{
+  padding:12px 18px;
+  border:1px solid rgba(0,0,0,.2);
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:inline-block;
+  padding:16px 40px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:.25em;
+  font-size:12px;
   margin-bottom:40px;
 }
-.size{
-  border:1px solid rgba(0,0,0,.25);
-  padding:12px 18px;
-  font-size:12px;
-  letter-spacing:.3em;
-  cursor:pointer;
-}
-.size:hover{
-  background:#000;
-  color:#fff;
-}
 
-/* BUTTON */
-.add{
-  display:inline-block;
-  padding:18px 36px;
-  border:1px solid #000;
-  text-decoration:none;
-  color:#000;
-  font-size:12px;
-  letter-spacing:.35em;
+/* ===== DETAILS ===== */
+.details{
+  border-top:1px solid rgba(0,0,0,.12);
+  margin-top:30px;
 }
-.add:hover{
-  background:#000;
-  color:#fff;
-}
-
-/* FOOTER */
-footer{
-  padding:40px 20px;
-  text-align:center;
-  font-size:11px;
-  letter-spacing:.3em;
-  opacity:.4;
+.details div{
+  padding:18px 0;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  font-size:14px;
 }
 </style>
 </head>
@@ -151,48 +165,71 @@ footer{
 
 <header>
   <div class="header-inner">
-    <div class="brand">
+    <a class="brand" href="index.html">
       <img src="logo.png">
-      <span>TIENDA</span>
-    </div>
+      LUXURY
+    </a>
     <nav>
-      <a href="tienda.html">TIENDA</a>
-      <a href="carrito.html">CARRITO</a>
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="carrito.html">Carrito</a>
     </nav>
   </div>
 </header>
 
-<a href="tienda.html" class="back">← TIENDA</a>
+<main class="container">
 
-<section class="product">
-
-  <div class="product-image">
-    <img src="dem1.png" alt="Producto">
-  </div>
-
-  <div class="product-info">
-    <h1>EDICIÓN LIMITADA</h1>
-    <p>
-      Diseño conceptual de alta presencia visual.  
-      Esta pieza representa el enfoque estético de una marca luxury.  
-      Materiales, forma y detalle pensados para impacto visual.
-    </p>
-
-    <div class="sizes">
-      <div class="size">S</div>
-      <div class="size">M</div>
-      <div class="size">L</div>
-      <div class="size">XL</div>
+  <!-- GALERÍA -->
+  <div class="gallery">
+    <div class="thumbs">
+      <img src="dem1.png" onclick="changeImg(this.src)">
+      <img src="dem2.png" onclick="changeImg(this.src)">
+      <img src="dem3.png" onclick="changeImg(this.src)">
+      <img src="dem4.png" onclick="changeImg(this.src)">
     </div>
 
-    <a href="carrito.html" class="add">AGREGAR AL CARRITO</a>
+    <div class="main-img">
+      <img id="mainImage" src="dem1.png">
+    </div>
   </div>
 
-</section>
+  <!-- INFO -->
+  <div class="info">
+    <h1>Luxury Piece</h1>
+    <div class="price">$1,280 USD</div>
 
-<footer>
-  © TIENDA — ALL RIGHTS RESERVED
-</footer>
+    <div class="desc">
+      Pieza seleccionada para presencia.
+      Diseño atemporal, materiales premium
+      y una silueta que define estatus.
+    </div>
+
+    <div class="selector">
+      <span>TALLA</span>
+      <div class="options">
+        <div>S</div>
+        <div>M</div>
+        <div>L</div>
+        <div>XL</div>
+      </div>
+    </div>
+
+    <a href="carrito.html" class="btn">AGREGAR AL CARRITO</a>
+
+    <div class="details">
+      <div>Materiales premium</div>
+      <div>Envío internacional</div>
+      <div>Edición limitada</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function changeImg(src){
+  document.getElementById("mainImage").src = src;
+}
+</script>
 
 </body>
 </html>
