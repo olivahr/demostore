@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Luxury Store</title>
+<title>LUXURY HOUSE</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,194 +10,190 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
+  font-family:'Inter',sans-serif;
   background:#fff;
-  color:#000;
-  font-family:'Inter',system-ui;
-  overflow-x:hidden;
+  color:#111;
 }
 
 /* ===== HEADER ===== */
 header{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
-  background:#fff;
+  z-index:50;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  padding:18px 28px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 28px;
-  z-index:100;
-  border-bottom:1px solid rgba(0,0,0,.08);
 }
-header img{height:28px}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo img{
+  width:34px;
+  height:34px;
+}
+.logo span{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  letter-spacing:.25em;
+}
+
 nav{
   display:flex;
-  gap:26px;
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+  gap:34px;
+  font-size:13px;
+  letter-spacing:.25em;
 }
 nav a{
   text-decoration:none;
-  color:#000;
-  opacity:.75;
+  color:#111;
 }
-nav a:hover{opacity:1}
 
 /* ===== HERO ===== */
 .hero{
-  min-height:100vh;
+  height:100vh;
+  background:url('hero.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding-top:140px;
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:56px;
-  letter-spacing:.42em;
-  animation:fadeUp 1.2s ease forwards;
-}
-.hero p{
-  margin:26px 0 36px;
-  font-size:13px;
-  letter-spacing:.22em;
-  opacity:.75;
-  animation:fadeUp 1.5s ease forwards;
-}
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  animation:fadeUp 1.8s ease forwards;
-}
-.hero a{
-  padding:16px 34px;
-  border:1px solid #000;
-  text-decoration:none;
-  color:#000;
-  font-size:11px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  transition:.4s;
-}
-.hero a:hover{
-  background:#000;
-  color:#fff;
+  padding:40px;
 }
 
-/* ===== SECTIONS ===== */
+.hero-overlay{
+  background:rgba(255,255,255,.92);
+  padding:60px 50px;
+  max-width:520px;
+  text-align:center;
+}
+
+.hero-overlay h1{
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  letter-spacing:.35em;
+  margin-bottom:20px;
+}
+
+.hero-overlay p{
+  font-size:14px;
+  letter-spacing:.25em;
+  margin-bottom:36px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+}
+
+.hero-buttons a{
+  padding:14px 32px;
+  border:1px solid #111;
+  text-decoration:none;
+  color:#111;
+  font-size:12px;
+  letter-spacing:.25em;
+}
+
+/* ===== COLLECTION ===== */
 .section{
-  padding:140px 28px;
-  max-width:1200px;
+  padding:120px 28px;
+  max-width:1400px;
   margin:auto;
 }
-.section-title{
+
+.section h2{
   font-family:'Playfair Display',serif;
-  font-size:38px;
-  letter-spacing:.18em;
+  font-size:42px;
+  letter-spacing:.3em;
   text-align:center;
   margin-bottom:80px;
 }
 
-/* ===== GRID ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:34px;
-}
-.card{
-  text-align:center;
-  opacity:0;
-  transform:translateY(60px);
-  transition:all .9s cubic-bezier(.2,.8,.2,1);
-}
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-.card img{
-  width:100%;
-  border-radius:14px;
-  transition:transform .6s ease;
-}
-.card:hover img{
-  transform:scale(1.04);
-}
-.card span{
-  display:block;
-  margin-top:18px;
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+  gap:40px;
 }
 
-/* ===== EDITORIAL ===== */
-.editorial{
-  padding:160px 0;
-  background:#f5f5f5;
+.card{
+  position:relative;
+  overflow:hidden;
 }
-.editorial img{
+
+.card img{
   width:100%;
-  max-width:920px;
-  display:block;
-  margin:0 auto 90px;
-  opacity:0;
-  transform:scale(.96);
-  transition:all 1s ease;
+  height:100%;
+  object-fit:cover;
+  transition:transform .8s ease;
 }
-.editorial img.show{
-  opacity:1;
-  transform:scale(1);
+
+.card:hover img{
+  transform:scale(1.08);
+}
+
+.card span{
+  position:absolute;
+  bottom:22px;
+  left:22px;
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  letter-spacing:.2em;
+  color:#fff;
+  text-shadow:0 10px 30px rgba(0,0,0,.7);
 }
 
 /* ===== FOOTER ===== */
 footer{
-  background:#000;
+  background:#111;
   color:#fff;
   padding:100px 28px;
 }
-footer h3{
-  font-family:'Playfair Display',serif;
-  margin-bottom:32px;
-  letter-spacing:.12em;
+
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
 }
+
+footer h4{
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
+  letter-spacing:.2em;
+}
+
 footer a{
   display:block;
-  color:#fff;
+  color:#aaa;
   text-decoration:none;
-  margin-bottom:14px;
-  font-size:12px;
-  opacity:.65;
+  margin-bottom:12px;
+  font-size:13px;
 }
-footer a:hover{opacity:1}
 
 /* ===== CONTACT FLOAT ===== */
-.contacto{
+.contact-float{
   position:fixed;
   right:22px;
   bottom:22px;
-  background:#000;
+  z-index:90;
+  background:#111;
   color:#fff;
-  padding:14px 26px;
+  padding:14px 28px;
   border-radius:999px;
+  font-size:13px;
+  letter-spacing:.2em;
   text-decoration:none;
-  font-size:12px;
-  letter-spacing:.14em;
-  z-index:200;
-  animation:pulse 3s ease-in-out infinite;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
 }
 </style>
 </head>
@@ -205,66 +201,64 @@ footer a:hover{opacity:1}
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
+  <div class="logo">
+    <img src="logo.png">
+    <span>LUXURY</span>
+  </div>
   <nav>
-    <a href="#">Home</a>
-    <a href="tienda.html">Shop</a>
-    <a href="#">Services</a>
+    <a href="#">HOME</a>
+    <a href="#">SHOP</a>
+    <a href="contacto.html">CONTACT</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div>
+  <div class="hero-overlay">
     <h1>LUXURY</h1>
     <p>MODERN · CURATED · TIMELESS</p>
     <div class="hero-buttons">
-      <a href="tienda.html">For Her</a>
-      <a href="tienda.html">For Him</a>
+      <a href="#">FOR HER</a>
+      <a href="#">FOR HIM</a>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <h2 class="section-title">Collections</h2>
+  <h2>COLLECTION</h2>
   <div class="grid">
-    <div class="card"><img src="dem1.png"><span>Handbags</span></div>
-    <div class="card"><img src="dem2.png"><span>Accessories</span></div>
-    <div class="card"><img src="dem3.png"><span>Jewelry</span></div>
-    <div class="card"><img src="dem4.png"><span>Leather Goods</span></div>
+    <div class="card"><img src="dem1.png"><span>New Season</span></div>
+    <div class="card"><img src="dem2.png"><span>Signature</span></div>
+    <div class="card"><img src="dem3.png"><span>Icons</span></div>
+    <div class="card"><img src="dem4.png"><span>Essentials</span></div>
+    <div class="card"><img src="dem5.png"><span>Limited</span></div>
+    <div class="card"><img src="dem6.png"><span>Craft</span></div>
+    <div class="card"><img src="dem7.png"><span>Timeless</span></div>
   </div>
 </section>
 
-<section class="editorial">
-  <img src="dem5.png">
-  <img src="dem6.png">
-  <img src="dem7.png">
-</section>
-
 <footer>
-  <h3>Customer Care</h3>
-  <a href="#">Contact Us</a>
-  <a href="#">Shipping</a>
-  <a href="#">Returns</a>
-  <a href="#">Privacy Policy</a>
+  <div class="footer-grid">
+    <div>
+      <h4>Customer Care</h4>
+      <a href="#">Contact</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Sustainability</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
 </footer>
 
-<a href="contacto.html" class="contacto">Contacto</a>
-
-<script>
-const cards = document.querySelectorAll('.card');
-const images = document.querySelectorAll('.editorial img');
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-    }
-  });
-},{threshold:.2});
-
-cards.forEach(c=>observer.observe(c));
-images.forEach(i=>observer.observe(i));
-</script>
+<a href="contacto.html" class="contact-float">CONTACT</a>
 
 </body>
 </html>
