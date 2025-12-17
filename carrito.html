@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Producto — Detalle</title>
+<title>Carrito | Luxury</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -18,16 +18,12 @@ body{
 
 /* ===== HEADER ===== */
 header{
-  position:sticky;
-  top:0;
-  background:#fff;
   border-bottom:1px solid rgba(0,0,0,.08);
-  z-index:100;
 }
 .header-inner{
-  max-width:1400px;
+  max-width:1200px;
   margin:auto;
-  padding:22px 32px;
+  padding:18px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,114 +31,124 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
   font-family:'Playfair Display',serif;
-  letter-spacing:.25em;
+  letter-spacing:.2em;
 }
 .brand img{
-  width:40px;
+  width:36px;
+  height:36px;
 }
 nav{
   display:flex;
-  gap:32px;
+  gap:30px;
+  font-size:13px;
+  letter-spacing:.18em;
 }
 nav a{
   text-decoration:none;
   color:#111;
-  font-size:12px;
-  letter-spacing:.32em;
 }
-nav a:hover{opacity:.6}
 
-/* ===== BACK ===== */
-.back{
-  position:fixed;
-  top:120px;
-  left:26px;
-  font-size:13px;
-  letter-spacing:.25em;
-  text-decoration:none;
-  color:#111;
-  opacity:.6;
-}
-.back:hover{opacity:1}
-
-/* ===== PRODUCT ===== */
-.product{
-  max-width:1400px;
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
   margin:auto;
-  padding:120px 32px 160px;
+  padding:70px 20px 140px;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
+  grid-template-columns:1.4fr .9fr;
+  gap:70px;
 }
 @media(max-width:900px){
-  .product{
+  .container{
     grid-template-columns:1fr;
+    gap:50px;
   }
 }
 
-/* IMAGE */
-.product-image img{
-  width:100%;
-  display:block;
-}
-
-/* INFO */
-.product-info h1{
+/* ===== CART ITEMS ===== */
+.cart-title{
   font-family:'Playfair Display',serif;
-  font-size:46px;
-  letter-spacing:.25em;
-  margin-bottom:18px;
-}
-.product-info p{
-  font-size:14px;
-  letter-spacing:.18em;
-  opacity:.65;
-  line-height:1.7;
+  font-size:38px;
+  letter-spacing:.12em;
   margin-bottom:40px;
 }
 
-/* SIZE */
-.sizes{
+.item{
   display:flex;
-  gap:16px;
-  margin-bottom:40px;
+  gap:26px;
+  padding:26px 0;
+  border-bottom:1px solid rgba(0,0,0,.1);
 }
-.size{
-  border:1px solid rgba(0,0,0,.25);
-  padding:12px 18px;
-  font-size:12px;
-  letter-spacing:.3em;
-  cursor:pointer;
+.item-img{
+  width:120px;
+  height:160px;
+  background:#eee;
 }
-.size:hover{
-  background:#000;
-  color:#fff;
+.item-info{
+  flex:1;
 }
-
-/* BUTTON */
-.add{
-  display:inline-block;
-  padding:18px 36px;
-  border:1px solid #000;
-  text-decoration:none;
-  color:#000;
-  font-size:12px;
-  letter-spacing:.35em;
+.item-info h3{
+  font-family:'Playfair Display',serif;
+  letter-spacing:.12em;
+  margin-bottom:10px;
 }
-.add:hover{
-  background:#000;
-  color:#fff;
+.item-info p{
+  font-size:13px;
+  color:#555;
+  margin-bottom:8px;
+}
+.item-price{
+  font-size:14px;
+  letter-spacing:.15em;
 }
 
-/* FOOTER */
-footer{
-  padding:40px 20px;
+/* ===== SUMMARY ===== */
+.summary{
+  border:1px solid rgba(0,0,0,.12);
+  padding:34px;
+  height:fit-content;
+}
+.summary h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  letter-spacing:.14em;
+  margin-bottom:28px;
+}
+.line{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:14px;
+  font-size:14px;
+}
+.total{
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid rgba(0,0,0,.15);
+  font-size:16px;
+  letter-spacing:.15em;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:100%;
+  margin-top:30px;
+  padding:18px;
+  background:#000;
+  color:#fff;
   text-align:center;
-  font-size:11px;
-  letter-spacing:.3em;
-  opacity:.4;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:.28em;
+}
+
+/* ===== FOOT NOTE ===== */
+.note{
+  margin-top:20px;
+  font-size:12px;
+  color:#666;
+  line-height:1.6;
 }
 </style>
 </head>
@@ -151,48 +157,64 @@ footer{
 
 <header>
   <div class="header-inner">
-    <div class="brand">
+    <a class="brand" href="index.html">
       <img src="logo.png">
-      <span>TIENDA</span>
-    </div>
+      LUXURY
+    </a>
     <nav>
-      <a href="tienda.html">TIENDA</a>
-      <a href="carrito.html">CARRITO</a>
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="producto.html">Producto</a>
     </nav>
   </div>
 </header>
 
-<a href="tienda.html" class="back">← TIENDA</a>
+<main class="container">
 
-<section class="product">
+  <!-- ITEMS -->
+  <section>
+    <div class="cart-title">Carrito</div>
 
-  <div class="product-image">
-    <img src="dem1.png" alt="Producto">
-  </div>
-
-  <div class="product-info">
-    <h1>EDICIÓN LIMITADA</h1>
-    <p>
-      Diseño conceptual de alta presencia visual.  
-      Esta pieza representa el enfoque estético de una marca luxury.  
-      Materiales, forma y detalle pensados para impacto visual.
-    </p>
-
-    <div class="sizes">
-      <div class="size">S</div>
-      <div class="size">M</div>
-      <div class="size">L</div>
-      <div class="size">XL</div>
+    <div class="item">
+      <div class="item-img"></div>
+      <div class="item-info">
+        <h3>Luxury Piece</h3>
+        <p>Talla: M</p>
+        <p>Cantidad: 1</p>
+        <div class="item-price">$1,280 USD</div>
+      </div>
     </div>
 
-    <a href="carrito.html" class="add">AGREGAR AL CARRITO</a>
-  </div>
+  </section>
 
-</section>
+  <!-- SUMMARY -->
+  <aside class="summary">
+    <h2>Resumen</h2>
 
-<footer>
-  © TIENDA — ALL RIGHTS RESERVED
-</footer>
+    <div class="line">
+      <span>Subtotal</span>
+      <span>$1,280</span>
+    </div>
+
+    <div class="line">
+      <span>Envío</span>
+      <span>Calculado luego</span>
+    </div>
+
+    <div class="total line">
+      <strong>Total</strong>
+      <strong>$1,280</strong>
+    </div>
+
+    <a href="#" class="btn">PROCEDER AL PAGO</a>
+
+    <div class="note">
+      Pagos seguros.<br>
+      Checkout se conecta luego a Square u otro proveedor.
+    </div>
+  </aside>
+
+</main>
 
 </body>
 </html>
