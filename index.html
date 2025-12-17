@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Tienda Luxury</title>
+<title>Luxury — Home</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,135 +12,154 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Inter',system-ui;
   background:#fff;
-  color:#111;
+  color:#000;
+  font-family:'Inter',system-ui;
   overflow-x:hidden;
 }
 
 /* ===== HEADER ===== */
 header{
-  position:sticky;
+  position:fixed;
   top:0;
-  background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.08);
+  left:0;
+  width:100%;
   z-index:100;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.06);
 }
 .header-inner{
-  max-width:1400px;
+  max-width:1200px;
   margin:auto;
-  padding:22px 32px;
+  padding:18px 22px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:14px;
-  font-family:'Playfair Display',serif;
-  letter-spacing:.25em;
 }
 .brand img{
-  width:42px;
+  width:38px;
+  height:38px;
+  object-fit:cover;
+}
+.brand span{
+  font-family:'Playfair Display',serif;
+  letter-spacing:.18em;
+  font-size:14px;
 }
 nav{
   display:flex;
-  gap:36px;
+  gap:34px;
 }
 nav a{
   text-decoration:none;
-  color:#111;
-  font-size:13px;
+  color:#000;
+  font-size:12px;
   letter-spacing:.28em;
 }
-nav a:hover{opacity:.6}
+
+/* ===== SPACER ===== */
+.spacer{height:110px}
 
 /* ===== HERO ===== */
 .hero{
-  min-height:90vh;
+  min-height:92vh;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:60px 20px;
+}
+.hero-inner{
   text-align:center;
-  padding:80px 20px;
+  max-width:760px;
 }
-.hero h1{
+.hero-inner h1{
   font-family:'Playfair Display',serif;
-  font-size:64px;
-  letter-spacing:.4em;
-  margin-bottom:26px;
+  font-size:72px;
+  letter-spacing:.38em;
+  margin-bottom:18px;
 }
-.hero p{
-  max-width:540px;
-  margin:auto;
+.hero-inner p{
   font-size:14px;
+  letter-spacing:.24em;
+  opacity:.7;
+  margin-bottom:40px;
+}
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.hero-actions a{
+  text-decoration:none;
+  padding:16px 36px;
+  border:1px solid #000;
+  font-size:12px;
   letter-spacing:.28em;
-  opacity:.6;
+  color:#000;
 }
-
-/* ===== DIVIDER ===== */
-.divider{
-  width:60px;
-  height:1px;
+.hero-actions a.primary{
   background:#000;
-  margin:90px auto;
-  opacity:.25;
+  color:#fff;
 }
 
-/* ===== LOOKBOOK ===== */
-.lookbook{
-  max-width:1400px;
-  margin:auto;
-  padding:0 32px 160px;
+/* ===== EDITORIAL ===== */
+.editorial{
+  max-width:1200px;
+  margin:140px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
 }
-.lookbook h2{
-  text-align:center;
+.editorial img{
+  width:100%;
+  border-radius:6px;
+}
+
+/* ===== COLLECTION ===== */
+.collection{
+  max-width:1200px;
+  margin:160px auto;
+  padding:0 20px;
+}
+.collection h2{
   font-family:'Playfair Display',serif;
-  font-size:44px;
-  letter-spacing:.35em;
+  font-size:38px;
+  letter-spacing:.32em;
+  text-align:center;
+  margin-bottom:18px;
+}
+.collection p{
+  text-align:center;
+  font-size:13px;
+  letter-spacing:.22em;
+  opacity:.6;
   margin-bottom:70px;
 }
-.look-grid{
+.collection-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:34px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:32px;
 }
-.look{
-  overflow:hidden;
-}
-.look img{
+.collection-grid img{
   width:100%;
-  display:block;
-  transition:transform .8s ease;
+  border-radius:6px;
 }
-.look:hover img{
-  transform:scale(1.08);
-}
-
-/* ===== CTA ===== */
-.cta{
-  text-align:center;
-  padding-bottom:140px;
-}
-.cta a{
-  text-decoration:none;
-  color:#fff;
-  background:#000;
-  padding:18px 38px;
-  font-size:13px;
-  letter-spacing:.35em;
-  display:inline-block;
-}
-.cta a:hover{opacity:.85}
 
 /* ===== FOOTER ===== */
 footer{
-  padding:40px 20px;
+  padding:80px 20px 40px;
   text-align:center;
   font-size:11px;
-  letter-spacing:.3em;
-  opacity:.4;
+  letter-spacing:.22em;
+  opacity:.5;
 }
 </style>
 </head>
@@ -150,7 +170,7 @@ footer{
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="Logo">
-      <span>TIENDA</span>
+      <span>LUXURY</span>
     </div>
     <nav>
       <a href="index.html">INICIO</a>
@@ -160,38 +180,40 @@ footer{
   </div>
 </header>
 
+<div class="spacer"></div>
+
 <section class="hero">
-  <div>
+  <div class="hero-inner">
     <h1>LUXURY</h1>
-    <p>
-      Presencia. Diseño. Identidad.<br>
-      No es moda rápida. Es marca.
-    </p>
+    <p>PRESENCIA · DISEÑO · IDENTIDAD</p>
+
+    <div class="hero-actions">
+      <a href="tienda.html" class="primary">ENTRAR A TIENDA</a>
+      <a href="#coleccion">VER COLECCIÓN</a>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<section class="editorial">
+  <img src="dem1.png">
+  <img src="dem2.png">
+  <img src="dem3.png">
+</section>
 
-<section class="lookbook">
+<section id="coleccion" class="collection">
   <h2>COLECCIÓN</h2>
+  <p>EDICIÓN VISUAL · DEMOSTRACIÓN DE DISEÑO</p>
 
-  <div class="look-grid">
-    <div class="look"><img src="dem1.png"></div>
-    <div class="look"><img src="dem2.png"></div>
-    <div class="look"><img src="dem3.png"></div>
-    <div class="look"><img src="dem4.png"></div>
-    <div class="look"><img src="dem5.png"></div>
-    <div class="look"><img src="dem6.png"></div>
-    <div class="look"><img src="dem7.png"></div>
+  <div class="collection-grid">
+    <img src="dem4.png">
+    <img src="dem5.png">
+    <img src="dem6.png">
+    <img src="dem7.png">
   </div>
-</section>
-
-<section class="cta">
-  <a href="tienda.html">ENTRAR A TIENDA</a>
 </section>
 
 <footer>
-  © TIENDA — ALL RIGHTS RESERVED
+  © LUXURY — ALL RIGHTS RESERVED
 </footer>
 
 </body>
