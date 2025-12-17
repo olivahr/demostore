@@ -2,110 +2,98 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>LUXURY — Tienda</title>
+<title>Luxury</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-  font-family:'Inter',system-ui;
+  font-family:'Inter', sans-serif;
   background:#fff;
   color:#111;
 }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 header{
-  position:sticky;
-  top:0;
-  background:#fff;
-  z-index:50;
   border-bottom:1px solid rgba(0,0,0,.08);
 }
 
 .header-inner{
   max-width:1200px;
   margin:auto;
-  padding:18px 20px;
+  padding:18px 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-  letter-spacing:.12em;
-}
-
-.brand img{
+.logo img{
   width:38px;
-  height:38px;
-  object-fit:cover;
 }
 
 nav{
   display:flex;
-  gap:32px;
-  font-size:13px;
-  letter-spacing:.2em;
+  gap:36px;
 }
 
 nav a{
   text-decoration:none;
+  font-size:13px;
+  letter-spacing:.25em;
   color:#111;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
   min-height:85vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:80px 20px;
-}
-
-.hero-content{
   text-align:center;
-  max-width:680px;
+  padding:40px 20px;
 }
 
-.hero-content h1{
-  font-family:'Playfair Display',serif;
-  font-size:64px;
+.hero-inner{
+  max-width:700px;
+}
+
+.hero h1{
+  font-family:'Playfair Display', serif;
+  font-size:72px;
   letter-spacing:.35em;
   margin-bottom:24px;
 }
 
-.hero-content p{
-  color:#555;
-  letter-spacing:.25em;
-  font-size:13px;
+.hero p{
+  font-size:14px;
+  letter-spacing:.35em;
+  color:#666;
   margin-bottom:50px;
 }
 
 .hero-buttons{
   display:flex;
   justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
+  gap:24px;
 }
 
-.btn{
-  padding:16px 42px;
-  border-radius:999px;
+.hero-buttons a{
   text-decoration:none;
-  font-size:12px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
+  padding:16px 40px;
+  border-radius:999px;
+  font-size:13px;
+  letter-spacing:.3em;
 }
 
-.btn-dark{
+.btn-main{
   background:#000;
   color:#fff;
 }
@@ -115,30 +103,27 @@ nav a{
   color:#000;
 }
 
-/* ===== SECCIÓN COLECCIONES ===== */
+/* ================= SECCIÓN TIENDA ================= */
 .section{
   max-width:1200px;
   margin:auto;
-  padding:120px 20px;
+  padding:100px 22px;
 }
 
 .section h2{
-  font-family:'Playfair Display',serif;
+  font-family:'Playfair Display', serif;
   font-size:42px;
-  letter-spacing:.3em;
-  margin-bottom:18px;
-  text-align:center;
+  letter-spacing:.25em;
+  margin-bottom:20px;
 }
 
 .section p{
-  text-align:center;
+  font-size:14px;
   color:#666;
-  margin-bottom:70px;
-  letter-spacing:.18em;
-  font-size:13px;
+  margin-bottom:60px;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -146,38 +131,53 @@ nav a{
 }
 
 .card{
-  text-decoration:none;
-  color:#111;
+  text-align:center;
 }
 
 .card img{
   width:100%;
-  height:360px;
-  object-fit:cover;
+  border-radius:6px;
+  margin-bottom:18px;
 }
 
 .card h3{
-  font-family:'Playfair Display',serif;
-  margin-top:18px;
-  font-size:20px;
-  letter-spacing:.12em;
+  font-size:14px;
+  letter-spacing:.25em;
 }
 
-.card span{
-  display:block;
-  margin-top:6px;
-  font-size:12px;
-  letter-spacing:.18em;
-  color:#666;
-}
-
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
   border-top:1px solid rgba(0,0,0,.08);
-  padding:50px 20px;
+  padding:60px 22px;
+  margin-top:120px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+.footer-block h4{
+  font-size:13px;
+  letter-spacing:.25em;
+  margin-bottom:16px;
+}
+
+.footer-block a{
+  display:block;
+  text-decoration:none;
+  font-size:13px;
+  color:#555;
+  margin-bottom:10px;
+}
+
+.footer-bottom{
   text-align:center;
+  margin-top:40px;
   font-size:12px;
-  letter-spacing:.2em;
   color:#777;
 }
 </style>
@@ -185,65 +185,73 @@ footer{
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="brand">
-      <img src="logo.png">
-      LUXURY
-    </div>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Luxury">
+    </a>
     <nav>
-      <a href="index.html">INICIO</a>
-      <a href="tienda.html">TIENDA</a>
-      <a href="carrito.html">CARRITO</a>
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="carrito.html">Carrito</a>
     </nav>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
     <h1>LUXURY</h1>
     <p>PRESENCIA · DISEÑO · IDENTIDAD</p>
-
     <div class="hero-buttons">
-      <a href="tienda.html" class="btn btn-dark">Entrar a Tienda</a>
-      <a href="#coleccion" class="btn btn-outline">Ver Colección</a>
+      <a href="tienda.html" class="btn-main">ENTRAR A TIENDA</a>
+      <a href="tienda.html" class="btn-outline">VER COLECCIÓN</a>
     </div>
   </div>
 </section>
 
-<section id="coleccion" class="section">
+<!-- COLECCIÓN -->
+<section class="section">
   <h2>COLECCIÓN</h2>
-  <p>Edición visual · Muestra de diseño</p>
+  <p>Edición visual. Muestra de diseño.</p>
 
   <div class="grid">
-    <a href="tienda.html" class="card">
-      <img src="dem1.png">
-      <h3>Bolsos</h3>
-      <span>Explorar</span>
-    </a>
-
-    <a href="tienda.html" class="card">
-      <img src="dem2.png">
-      <h3>Accesorios</h3>
-      <span>Explorar</span>
-    </a>
-
-    <a href="tienda.html" class="card">
-      <img src="dem3.png">
-      <h3>Leather Goods</h3>
-      <span>Explorar</span>
-    </a>
-
-    <a href="tienda.html" class="card">
-      <img src="dem4.png">
-      <h3>Ediciones</h3>
-      <span>Explorar</span>
-    </a>
+    <div class="card"><img src="dem1.png"><h3>PIEZA 01</h3></div>
+    <div class="card"><img src="dem2.png"><h3>PIEZA 02</h3></div>
+    <div class="card"><img src="dem3.png"><h3>PIEZA 03</h3></div>
+    <div class="card"><img src="dem4.png"><h3>PIEZA 04</h3></div>
+    <div class="card"><img src="dem5.png"><h3>PIEZA 05</h3></div>
+    <div class="card"><img src="dem6.png"><h3>PIEZA 06</h3></div>
+    <div class="card"><img src="dem7.png"><h3>PIEZA 07</h3></div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © LUXURY — Todos los derechos reservados
+  <div class="footer-inner">
+    <div class="footer-block">
+      <h4>ATENCIÓN</h4>
+      <a href="#">Contacto</a>
+      <a href="#">Soporte</a>
+    </div>
+
+    <div class="footer-block">
+      <h4>REDES</h4>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+    </div>
+
+    <div class="footer-block">
+      <h4>LEGAL</h4>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © Luxury. All rights reserved.
+  </div>
 </footer>
 
 </body>
