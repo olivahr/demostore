@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Luxury Home</title>
+<title>Tienda Luxury</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,9 +11,10 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  font-family:'Inter',system-ui;
   background:#fff;
   color:#111;
-  font-family:'Inter',system-ui;
+  overflow-x:hidden;
 }
 
 /* ===== HEADER ===== */
@@ -21,148 +22,125 @@ header{
   position:sticky;
   top:0;
   background:#fff;
-  z-index:50;
   border-bottom:1px solid rgba(0,0,0,.08);
+  z-index:100;
 }
 .header-inner{
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
-  padding:18px 22px;
+  padding:22px 32px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
-.logo{
+.brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
   font-family:'Playfair Display',serif;
-  font-size:20px;
-  letter-spacing:.18em;
+  letter-spacing:.25em;
 }
-.logo img{
-  width:34px;
-  height:34px;
+.brand img{
+  width:42px;
 }
 nav{
   display:flex;
-  gap:28px;
+  gap:36px;
 }
 nav a{
   text-decoration:none;
   color:#111;
   font-size:13px;
-  letter-spacing:.2em;
+  letter-spacing:.28em;
 }
 nav a:hover{opacity:.6}
 
 /* ===== HERO ===== */
 .hero{
-  min-height:88vh;
+  min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:60px 20px;
-}
-.hero-inner{
-  max-width:900px;
-  width:100%;
   text-align:center;
-}
-.hero-inner img{
-  width:100%;
-  max-width:520px;
-  margin:0 auto 40px;
-  display:block;
+  padding:80px 20px;
 }
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:58px;
-  letter-spacing:.25em;
-  margin-bottom:14px;
+  font-size:64px;
+  letter-spacing:.4em;
+  margin-bottom:26px;
 }
 .hero p{
+  max-width:540px;
+  margin:auto;
   font-size:14px;
-  letter-spacing:.35em;
-  opacity:.7;
-  margin-bottom:42px;
-}
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-}
-.hero-actions a{
-  padding:14px 38px;
-  border:1px solid #111;
-  text-decoration:none;
-  color:#111;
-  font-size:12px;
-  letter-spacing:.25em;
-}
-.hero-actions a:hover{
-  background:#111;
-  color:#fff;
+  letter-spacing:.28em;
+  opacity:.6;
 }
 
-/* ===== COLLECTION PREVIEW ===== */
-.preview{
-  max-width:1200px;
-  margin:120px auto;
-  padding:0 22px;
+/* ===== DIVIDER ===== */
+.divider{
+  width:60px;
+  height:1px;
+  background:#000;
+  margin:90px auto;
+  opacity:.25;
 }
-.preview-grid{
+
+/* ===== LOOKBOOK ===== */
+.lookbook{
+  max-width:1400px;
+  margin:auto;
+  padding:0 32px 160px;
+}
+.lookbook h2{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  letter-spacing:.35em;
+  margin-bottom:70px;
+}
+.look-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:34px;
 }
-.preview-grid img{
+.look{
+  overflow:hidden;
+}
+.look img{
   width:100%;
   display:block;
+  transition:transform .8s ease;
 }
+.look:hover img{
+  transform:scale(1.08);
+}
+
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  padding-bottom:140px;
+}
+.cta a{
+  text-decoration:none;
+  color:#fff;
+  background:#000;
+  padding:18px 38px;
+  font-size:13px;
+  letter-spacing:.35em;
+  display:inline-block;
+}
+.cta a:hover{opacity:.85}
 
 /* ===== FOOTER ===== */
 footer{
-  margin-top:160px;
-  padding:80px 22px;
-  border-top:1px solid rgba(0,0,0,.08);
+  padding:40px 20px;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.3em;
+  opacity:.4;
 }
-.footer-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:40px;
-}
-footer h4{
-  font-size:12px;
-  letter-spacing:.2em;
-  margin-bottom:14px;
-}
-footer a{
-  display:block;
-  text-decoration:none;
-  color:#111;
-  font-size:13px;
-  opacity:.7;
-  margin-bottom:8px;
-}
-
-/* ===== BOTÓN CONTACTO ===== */
-.contacto-float{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  background:#111;
-  color:#fff;
-  padding:14px 30px;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:13px;
-  letter-spacing:.25em;
-  box-shadow:0 14px 40px rgba(0,0,0,.25);
-}
-.contacto-float:hover{opacity:.85}
 </style>
 </head>
 
@@ -170,56 +148,51 @@ footer a{
 
 <header>
   <div class="header-inner">
-    <div class="logo">
-      <img src="logo.png">
-      LUXURYHOME
+    <div class="brand">
+      <img src="logo.png" alt="Logo">
+      <span>TIENDA</span>
     </div>
     <nav>
       <a href="index.html">INICIO</a>
       <a href="tienda.html">TIENDA</a>
-      <a href="contacto.html">CONTACTO</a>
+      <a href="carrito.html">CARRITO</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-inner">
-    <img src="hero.png" alt="">
+  <div>
     <h1>LUXURY</h1>
-    <p>MODERNO · CURADO · ATEMPORAL</p>
-    <div class="hero-actions">
-      <a href="tienda.html">PARA ELLA</a>
-      <a href="tienda.html">PARA ÉL</a>
-    </div>
+    <p>
+      Presencia. Diseño. Identidad.<br>
+      No es moda rápida. Es marca.
+    </p>
   </div>
 </section>
 
-<section class="preview">
-  <div class="preview-grid">
-    <img src="dem1.png">
-    <img src="dem2.png">
-    <img src="dem3.png">
-    <img src="dem4.png">
+<div class="divider"></div>
+
+<section class="lookbook">
+  <h2>COLECCIÓN</h2>
+
+  <div class="look-grid">
+    <div class="look"><img src="dem1.png"></div>
+    <div class="look"><img src="dem2.png"></div>
+    <div class="look"><img src="dem3.png"></div>
+    <div class="look"><img src="dem4.png"></div>
+    <div class="look"><img src="dem5.png"></div>
+    <div class="look"><img src="dem6.png"></div>
+    <div class="look"><img src="dem7.png"></div>
   </div>
+</section>
+
+<section class="cta">
+  <a href="tienda.html">ENTRAR A TIENDA</a>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <h4>AYUDA</h4>
-      <a href="contacto.html">Contacto</a>
-      <a href="#">Envíos</a>
-      <a href="#">Devoluciones</a>
-    </div>
-    <div>
-      <h4>LA MARCA</h4>
-      <a href="#">Nuestra Historia</a>
-      <a href="#">Colecciones</a>
-    </div>
-  </div>
+  © TIENDA — ALL RIGHTS RESERVED
 </footer>
-
-<a href="contacto.html" class="contacto-float">CONTACTO</a>
 
 </body>
 </html>
