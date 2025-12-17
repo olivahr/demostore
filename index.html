@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>LUXURY HOUSE</title>
-
+<title>Luxury Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,253 +11,215 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Inter',sans-serif;
   background:#fff;
   color:#111;
+  font-family:'Inter',system-ui;
 }
 
 /* ===== HEADER ===== */
 header{
-  position:fixed;
+  position:sticky;
   top:0;
-  left:0;
-  width:100%;
+  background:#fff;
   z-index:50;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(12px);
-  padding:18px 28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  border-bottom:1px solid rgba(0,0,0,.08);
 }
-
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 .logo{
   display:flex;
   align-items:center;
   gap:12px;
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  letter-spacing:.18em;
 }
 .logo img{
   width:34px;
   height:34px;
 }
-.logo span{
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-  letter-spacing:.25em;
-}
-
 nav{
   display:flex;
-  gap:34px;
-  font-size:13px;
-  letter-spacing:.25em;
+  gap:28px;
 }
 nav a{
   text-decoration:none;
   color:#111;
+  font-size:13px;
+  letter-spacing:.2em;
 }
+nav a:hover{opacity:.6}
 
 /* ===== HERO ===== */
 .hero{
-  height:100vh;
-  background:url('hero.jpg') center/cover no-repeat;
+  min-height:88vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px;
+  padding:60px 20px;
 }
-
-.hero-overlay{
-  background:rgba(255,255,255,.92);
-  padding:60px 50px;
-  max-width:520px;
+.hero-inner{
+  max-width:900px;
+  width:100%;
   text-align:center;
 }
-
-.hero-overlay h1{
+.hero-inner img{
+  width:100%;
+  max-width:520px;
+  margin:0 auto 40px;
+  display:block;
+}
+.hero h1{
   font-family:'Playfair Display',serif;
-  font-size:52px;
-  letter-spacing:.35em;
-  margin-bottom:20px;
-}
-
-.hero-overlay p{
-  font-size:14px;
+  font-size:58px;
   letter-spacing:.25em;
-  margin-bottom:36px;
+  margin-bottom:14px;
 }
-
-.hero-buttons{
+.hero p{
+  font-size:14px;
+  letter-spacing:.35em;
+  opacity:.7;
+  margin-bottom:42px;
+}
+.hero-actions{
   display:flex;
-  gap:18px;
   justify-content:center;
+  gap:22px;
 }
-
-.hero-buttons a{
-  padding:14px 32px;
+.hero-actions a{
+  padding:14px 38px;
   border:1px solid #111;
   text-decoration:none;
   color:#111;
   font-size:12px;
   letter-spacing:.25em;
 }
-
-/* ===== COLLECTION ===== */
-.section{
-  padding:120px 28px;
-  max-width:1400px;
-  margin:auto;
-}
-
-.section h2{
-  font-family:'Playfair Display',serif;
-  font-size:42px;
-  letter-spacing:.3em;
-  text-align:center;
-  margin-bottom:80px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-}
-
-.card{
-  position:relative;
-  overflow:hidden;
-}
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .8s ease;
-}
-
-.card:hover img{
-  transform:scale(1.08);
-}
-
-.card span{
-  position:absolute;
-  bottom:22px;
-  left:22px;
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-  letter-spacing:.2em;
+.hero-actions a:hover{
+  background:#111;
   color:#fff;
-  text-shadow:0 10px 30px rgba(0,0,0,.7);
+}
+
+/* ===== COLLECTION PREVIEW ===== */
+.preview{
+  max-width:1200px;
+  margin:120px auto;
+  padding:0 22px;
+}
+.preview-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+}
+.preview-grid img{
+  width:100%;
+  display:block;
 }
 
 /* ===== FOOTER ===== */
 footer{
-  background:#111;
-  color:#fff;
-  padding:100px 28px;
+  margin-top:160px;
+  padding:80px 22px;
+  border-top:1px solid rgba(0,0,0,.08);
 }
-
-.footer-grid{
+.footer-inner{
   max-width:1200px;
   margin:auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:40px;
 }
-
 footer h4{
-  font-family:'Playfair Display',serif;
-  margin-bottom:20px;
+  font-size:12px;
   letter-spacing:.2em;
+  margin-bottom:14px;
 }
-
 footer a{
   display:block;
-  color:#aaa;
   text-decoration:none;
-  margin-bottom:12px;
+  color:#111;
   font-size:13px;
+  opacity:.7;
+  margin-bottom:8px;
 }
 
-/* ===== CONTACT FLOAT ===== */
-.contact-float{
+/* ===== BOTÓN CONTACTO ===== */
+.contacto-float{
   position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:90;
+  right:24px;
+  bottom:24px;
   background:#111;
   color:#fff;
-  padding:14px 28px;
+  padding:14px 30px;
   border-radius:999px;
-  font-size:13px;
-  letter-spacing:.2em;
   text-decoration:none;
-  box-shadow:0 12px 40px rgba(0,0,0,.35);
+  font-size:13px;
+  letter-spacing:.25em;
+  box-shadow:0 14px 40px rgba(0,0,0,.25);
 }
+.contacto-float:hover{opacity:.85}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.png">
-    <span>LUXURY</span>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="logo.png">
+      LUXURYHOME
+    </div>
+    <nav>
+      <a href="index.html">INICIO</a>
+      <a href="tienda.html">TIENDA</a>
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#">HOME</a>
-    <a href="#">SHOP</a>
-    <a href="contacto.html">CONTACT</a>
-  </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-overlay">
+  <div class="hero-inner">
+    <img src="hero.png" alt="">
     <h1>LUXURY</h1>
-    <p>MODERN · CURATED · TIMELESS</p>
-    <div class="hero-buttons">
-      <a href="#">FOR HER</a>
-      <a href="#">FOR HIM</a>
+    <p>MODERNO · CURADO · ATEMPORAL</p>
+    <div class="hero-actions">
+      <a href="tienda.html">PARA ELLA</a>
+      <a href="tienda.html">PARA ÉL</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>COLLECTION</h2>
-  <div class="grid">
-    <div class="card"><img src="dem1.png"><span>New Season</span></div>
-    <div class="card"><img src="dem2.png"><span>Signature</span></div>
-    <div class="card"><img src="dem3.png"><span>Icons</span></div>
-    <div class="card"><img src="dem4.png"><span>Essentials</span></div>
-    <div class="card"><img src="dem5.png"><span>Limited</span></div>
-    <div class="card"><img src="dem6.png"><span>Craft</span></div>
-    <div class="card"><img src="dem7.png"><span>Timeless</span></div>
+<section class="preview">
+  <div class="preview-grid">
+    <img src="dem1.png">
+    <img src="dem2.png">
+    <img src="dem3.png">
+    <img src="dem4.png">
   </div>
 </section>
 
 <footer>
-  <div class="footer-grid">
+  <div class="footer-inner">
     <div>
-      <h4>Customer Care</h4>
-      <a href="#">Contact</a>
-      <a href="#">Shipping</a>
-      <a href="#">Returns</a>
+      <h4>AYUDA</h4>
+      <a href="contacto.html">Contacto</a>
+      <a href="#">Envíos</a>
+      <a href="#">Devoluciones</a>
     </div>
     <div>
-      <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Careers</a>
-      <a href="#">Sustainability</a>
-    </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
+      <h4>LA MARCA</h4>
+      <a href="#">Nuestra Historia</a>
+      <a href="#">Colecciones</a>
     </div>
   </div>
 </footer>
 
-<a href="contacto.html" class="contact-float">CONTACT</a>
+<a href="contacto.html" class="contacto-float">CONTACTO</a>
 
 </body>
 </html>
